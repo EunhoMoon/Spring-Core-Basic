@@ -1,6 +1,5 @@
-package study.spring.core.order;
+package study.spring.core.discount;
 
-import study.spring.core.discount.DiscountPolicy;
 import study.spring.core.member.Grade;
 import study.spring.core.member.Member;
 

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import study.spring.core.member.Grade;
 import study.spring.core.member.Member;
-import study.spring.core.order.RateDiscountPolicy;
 
 import static org.assertj.core.api.Assertions.*;
 // static import로 간결하게 사용하는 것이 좋다.

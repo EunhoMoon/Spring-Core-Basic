@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="memberService" class="study.spring.core.member.MemberServiceImpl">
+	<!-- class : 실제 경로 -->
+		<constructor-arg name="memberRepository" ref="memberRepository"/>
+		<!-- ref : 파라미터 -->
+	</bean>
+	
+	<bean id="memberRepository" class="study.spring.core.member.MemoryMemberRepository"/>
+	
+	<bean id="orderService" class="study.spring.core.order.OrderServiceImpl">
+		<constructor-arg name="memberRepository" ref="memberRepository"/>
+		<constructor-arg name="discountPolicy" ref="discountPolicy"/>
+	</bean>
+	
+	<bean id="discountPolicy" class="study.spring.core.discount.RateDiscountPolicy"/>
+
+</beans>

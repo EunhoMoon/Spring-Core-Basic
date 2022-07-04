@@ -1,4 +1,4 @@
-package beanfind;
+package study.spring.core.beanfind;
 
 import java.util.Iterator;
 
