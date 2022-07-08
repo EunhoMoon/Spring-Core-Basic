@@ -2,21 +2,17 @@ package study.spring.core.order;
 
 import org.springframework.stereotype.Component;
 
+import lombok.RequiredArgsConstructor;
 import study.spring.core.discount.DiscountPolicy;
 import study.spring.core.member.Member;
 import study.spring.core.member.MemberRepository;
 
 @Component
+@RequiredArgsConstructor	// final이 붙은 필수값을 지닌 생성자를 만들어준다.(필드 수정/추가에도 용이)
 public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
-
-//	@Autowired	: 생성자가 하나만 있을 경우 생략 가능
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-		this.memberRepository = memberRepository;
-		this.discountPolicy = discountPolicy;
-	}
 
 	@Override
 	public Order createOrder(Long memberId, String itemName, int itemPrice) {
