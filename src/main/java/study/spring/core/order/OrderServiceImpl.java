@@ -1,6 +1,5 @@
 package study.spring.core.order;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import study.spring.core.discount.DiscountPolicy;
@@ -13,7 +12,7 @@ public class OrderServiceImpl implements OrderService {
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
 
-	@Autowired
+//	@Autowired	: 생성자가 하나만 있을 경우 생략 가능
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
