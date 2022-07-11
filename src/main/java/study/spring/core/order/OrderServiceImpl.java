@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
+import study.spring.core.annotation.MainDiscountPolicy;
 import study.spring.core.discount.DiscountPolicy;
 import study.spring.core.member.Member;
 import study.spring.core.member.MemberRepository;
@@ -17,9 +18,10 @@ public class OrderServiceImpl implements OrderService {
 	private final DiscountPolicy discountPolicy;
 
 	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+	public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
 //		public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
-//		 @Qualifier : 특정 빈에 이름을 지정하고(빈의 이름이 변경되는 것은 아님), 지정된 빈을 사용할 수 있다.
+//		@Qualifier : 특정 빈에 이름을 지정하고(빈의 이름이 변경되는 것은 아님), 지정된 빈을 사용할 수 있다.
+//		@MainDiscountPolicy : 커스텀 어노테이션, Qualifier를 포함하도록 만들었다.
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
 	}
